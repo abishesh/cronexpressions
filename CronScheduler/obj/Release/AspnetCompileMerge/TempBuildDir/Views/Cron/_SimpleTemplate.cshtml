@@ -1,0 +1,50 @@
+﻿<script type="text/html" id="CronWidgit">
+    <div class="col-md-12">
+        Every:
+        <select data-bind="options:availableOptions, optionsText:'name',
+        value:selectedOption"></select>
+        &nbsp;
+        <span data-bind="with:templateData">
+            <span data-bind="template:{name: template(), data:data}"></span>
+        </span>
+        @*&nbsp;
+        <a href="#" data-bind="click:notify" class="btn btn-info">Notify</a>*@
+    </div>
+</script>
+
+<script type="text/html" id="Minute">
+    <span>Every Recurring Minute</span>
+</script>
+
+<script type="text/html" id="Hour">
+    <span>at</span>&nbsp;
+    <select data-bind="options:minutes,value:minute"></select>&nbsp;
+    <span>minutes past the hour.</span>
+</script>
+
+<script type="text/html" id="Day">
+    <span>at</span>&nbsp;
+    <select data-bind="options:hours,value:hour"></select>&nbsp;
+    <span>:</span>&nbsp;
+    <select data-bind="options:minutes,value:minute"></select>&nbsp;
+    <select data-bind="options:['AM','PM'], value:meredian"></select>
+</script>
+
+<script type="text/html" id="Week">
+    <span>on</span>&nbsp;
+    <select data-bind="options:days,value:day"></select>&nbsp;
+    <span data-bind="template:{name: 'Day', data:dayModel()}"></span>
+</script>
+
+<script type="text/html" id="Month">
+    <span>on the</span>&nbsp;
+    <select data-bind="options:days,value:day"></select> day&nbsp;
+    <span data-bind="template:{name: 'Day', data:dayModel()}"></span>
+</script>
+
+<script type="text/html" id="Year">
+    <span>on the</span>&nbsp;
+    <select data-bind="options:days,value:day"></select> of&nbsp;
+    <select data-bind="options:months,value:month"></select> &nbsp;
+    <span data-bind="template:{name: 'Day', data:dayModel()}"></span>
+</script>
